@@ -13,14 +13,12 @@ public class Main {
             // Copy arrays for fair comparison
             int[] arrayRahmani = Arrays.copyOf(data, data.length);
             int[] arraySequential = Arrays.copyOf(data, data.length);
-            int[] arrayBinary = Arrays.copyOf(data, data.length);
             int[] arrayMerge = Arrays.copyOf(data, data.length);
             int[] arrayQuick = Arrays.copyOf(data, data.length);
 
             // Measure execution times
             measureSortTime("Rahmani Sort", () -> RahmaniSort.sort(arrayRahmani));
             measureSortTime("Sequential Insertion Sort", () -> InsertionSortSequential.sort(arraySequential));
-            measureSortTime("Binary Insertion Sort", () -> InsertionSortBinary.sort(arrayBinary));
             measureSortTime("Merge Sort", () -> MergeSort.sort(arrayMerge, 0, arrayMerge.length - 1));
             measureSortTime("Quick Sort", () -> QuickSort.sort(arrayQuick, 0, arrayQuick.length - 1));
 
@@ -45,6 +43,6 @@ public class Main {
         long startTime = System.nanoTime();
         sortMethod.run();
         long endTime = System.nanoTime();
-        System.out.println(name + " Time: " + (endTime - startTime) / 1e6 + " ms");
+        System.out.println(name + " Time: " + (endTime - startTime) + " ns");
     }
 }
